@@ -1,6 +1,7 @@
 
 public class caliculator {
 	int fare = 0;
+	
 	int Basic_fare_OC = 690;
 	int Additional_permetors_OC = 272;
 	int Additional_fare_OC = 80;
@@ -9,14 +10,38 @@ public class caliculator {
 	int Additional_permetors_LC = 231;
 	int Additional_fare_LC = 90;
 	int Additional_perseconds_LC = 85;
+
+	
+
+
 	
 	public int fare_OrdinaryCar(int mileage,int waiting) {
-		fare = Basic_fare_OC + (mileage*1000 - 1500)*Additional_fare_OC/Additional_permetors_OC + waiting*60*Additional_fare_OC/Additional_perseconds_OC;
+		int times_perdistance = 0;
+		while (times_perdistance*Additional_permetors_OC < (mileage*1000 - 1500)) {
+			times_perdistance += 1;
+		}
+		int times_per_unitTime = 0;
+		while (times_per_unitTime*Additional_perseconds_OC < waiting*60) {
+			times_per_unitTime += 1;
+		}
+		
+		fare = Basic_fare_OC + times_perdistance*Additional_fare_OC + times_per_unitTime*Additional_fare_OC;
 	    return fare;
+
 	}
+	
 	public int fare_LargeCar(int mileage,int waiting) {
-		fare = Basic_fare_LC + (mileage*1000 - 1500)*Additional_fare_LC/Additional_permetors_LC + waiting*60*Additional_fare_LC/Additional_perseconds_LC;
-		return fare;
+		int times_perdistance = 0;
+		while (times_perdistance*Additional_permetors_LC < (mileage*1000 - 1500)) {
+			times_perdistance += 1;
+		}
+		int times_per_unitTime = 0;
+		while (times_per_unitTime*Additional_perseconds_LC < waiting*60) {
+			times_per_unitTime += 1;
+		}
+		
+		fare = Basic_fare_LC + times_perdistance*Additional_fare_LC + times_per_unitTime*Additional_fare_LC;
+	    return fare;
 	}
 
 }

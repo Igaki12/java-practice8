@@ -21,13 +21,12 @@ public class Main {
 			while ((line = br.readLine()) != null) {
 				readingLine += 1;
 				data = line.split(",");
-				System.out.println(data[1]);
 				
-				if (data[1] == "•’Ê") {
+				if (data[1].equals("•’Ê")) {
 					int x = cal.fare_OrdinaryCar(Integer.parseInt(data[2]),Integer.parseInt(data[3]));
 					System.out.println(data[0] + ":" + x + "‰~");
 				}
-				else if (data[1] == "‘åŒ^") {
+				else if (data[1].equals("‘åŒ^")) {
 					int x = cal.fare_LargeCar(Integer.parseInt(data[2]), Integer.parseInt(data[3]));
 					System.out.println(data[0] + ":" + x + "‰~");
 				}
